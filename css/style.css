@@ -4,62 +4,71 @@
   padding: 0;
 }
 
-$strokeColor: #B8B8B8;
-$heartColor: #E21737;
-$size: 180px; // change this to manipulate overall size
-$totalAnim: 7s;
-$delay: 1s;
-$squareLen: 240;
-$circleLen: 188.522;
-$heartLen: 308.522;
-$svgSize: 90px;
-$circleW: 60px;
-
 .heart-loader {
   position: absolute;
   display: block;
   left: 50%;
   top: 50%;
-  margin-top: $size/-2;
-  width: $size;
-  height: $size;
+  margin-top: -90px;
+  width: 180px;
+  height: 180px;
   overflow: visible;
-  
-  &__group {
-    transform-origin: 0 $svgSize;
-    animation: group-anim $totalAnim $delay infinite;
+}
+.heart-loader__group {
+  -webkit-transform-origin: 0 90px;
+          transform-origin: 0 90px;
+  -webkit-animation: group-anim 7s 1s infinite;
+          animation: group-anim 7s 1s infinite;
+}
+.heart-loader__square {
+  stroke: #B8B8B8;
+  stroke-dasharray: 240, 240;
+  stroke-dashoffset: 240;
+  -webkit-animation: square-anim 7s 1s infinite;
+          animation: square-anim 7s 1s infinite;
+}
+.heart-loader__circle {
+  stroke: #B8B8B8;
+  stroke-dasharray: 188.522, 188.522;
+  stroke-dashoffset: 188.522;
+  -webkit-transform-origin: 60px 30px;
+          transform-origin: 60px 30px;
+}
+.heart-loader__circle.m--left {
+  -webkit-animation: left-circle-anim 7s 1s infinite;
+          animation: left-circle-anim 7s 1s infinite;
+}
+.heart-loader__circle.m--right {
+  -webkit-animation: right-circle-anim 7s 1s infinite;
+          animation: right-circle-anim 7s 1s infinite;
+}
+.heart-loader__heartPath {
+  stroke: #E21737;
+  fill: transparent;
+  stroke-dasharray: 308.522, 308.522;
+  stroke-dashoffset: 308.522;
+  -webkit-animation: heart-anim 7s 1s infinite;
+          animation: heart-anim 7s 1s infinite;
+}
+
+@-webkit-keyframes square-anim {
+  12% {
+    stroke-dashoffset: 0;
   }
-  
-  &__square {
-    stroke: $strokeColor;
-    stroke-dasharray: $squareLen, $squareLen;
-    stroke-dashoffset: $squareLen;
-    animation: square-anim $totalAnim $delay infinite;
+  43% {
+    stroke-dashoffset: 0;
+    opacity: 1;
   }
-  
-  &__circle {
-    stroke: $strokeColor;
-    stroke-dasharray: $circleLen, $circleLen;
-    stroke-dashoffset: $circleLen;
-    transform-origin: $circleW $circleW/2;
-    
-    &.m--left {
-      animation: left-circle-anim $totalAnim $delay infinite;
-    }
-    
-    &.m--right {
-      animation: right-circle-anim $totalAnim $delay infinite;
-    }
+  85% {
+    stroke-dashoffset: 0;
+    opacity: 0;
   }
-  
-  &__heartPath {
-    stroke: $heartColor;
-    fill: transparent;
-    stroke-dasharray: $heartLen, $heartLen;
-    stroke-dashoffset: $heartLen;
-    animation: heart-anim $totalAnim $delay infinite;
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
   }
 }
+
 @keyframes square-anim {
   12% {
     stroke-dashoffset: 0;
@@ -77,85 +86,191 @@ $circleW: 60px;
     opacity: 0;
   }
 }
-@keyframes left-circle-anim {
+@-webkit-keyframes left-circle-anim {
   12% {
-    stroke-dashoffset: $circleLen;
+    stroke-dashoffset: 188.522;
   }
   31% {
     stroke-dashoffset: 0;
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   41% {
     stroke-dashoffset: 0;
-    transform: translateY($circleW/-2);
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
   }
   43% {
     stroke-dashoffset: 0;
-    transform: translateY($circleW/-2);
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
     opacity: 1;
   }
   85% {
     stroke-dashoffset: 0;
-    transform: translateY($circleW/-2);
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
     opacity: 0;
   }
   100% {
     stroke-dashoffset: 0;
-    transform: translateY($circleW/-2);
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+@keyframes left-circle-anim {
+  12% {
+    stroke-dashoffset: 188.522;
+  }
+  31% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  41% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  43% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+    opacity: 1;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes right-circle-anim {
+  12% {
+    stroke-dashoffset: 188.522;
+  }
+  31% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  41% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+  }
+  43% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+    opacity: 1;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
     opacity: 0;
   }
 }
 @keyframes right-circle-anim {
   12% {
-    stroke-dashoffset: $circleLen;
+    stroke-dashoffset: 188.522;
   }
   31% {
     stroke-dashoffset: 0;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
   41% {
     stroke-dashoffset: 0;
-    transform: translateX($circleW/2);
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
   }
   43% {
     stroke-dashoffset: 0;
-    transform: translateX($circleW/2);
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
     opacity: 1;
   }
   85% {
     stroke-dashoffset: 0;
-    transform: translateX($circleW/2);
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
     opacity: 0;
   }
   100% {
     stroke-dashoffset: 0;
-    transform: translateX($circleW/2);
+    -webkit-transform: translateX(30px);
+            transform: translateX(30px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes group-anim {
+  43% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  54% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  90% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    opacity: 1;
+  }
+  97% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     opacity: 0;
   }
 }
 @keyframes group-anim {
   43% {
-    transform: rotate(0);
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
   54% {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
   }
   90% {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     opacity: 1;
   }
   97% {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     opacity: 0;
   }
   100% {
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
     opacity: 0;
   }
 }
-@keyframes heart-anim {
+@-webkit-keyframes heart-anim {
   55% {
-    stroke-dashoffset: $heartLen;
+    stroke-dashoffset: 308.522;
     fill: transparent;
   }
   70% {
@@ -164,23 +279,39 @@ $circleW: 60px;
   }
   87% {
     stroke-dashoffset: 0;
-    fill: $heartColor;
+    fill: #E21737;
   }
   100% {
     stroke-dashoffset: 0;
-    fill: $heartColor;
+    fill: #E21737;
   }
 }
-
+@keyframes heart-anim {
+  55% {
+    stroke-dashoffset: 308.522;
+    fill: transparent;
+  }
+  70% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  87% {
+    stroke-dashoffset: 0;
+    fill: #E21737;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #E21737;
+  }
+}
 .other {
   position: absolute;
   left: 0;
   bottom: 0.5rem;
   width: 100%;
   text-align: right;
-  
-  &__link {
-    font-size: 1.3rem;
-    margin: 0 1rem;
-  }
+}
+.other__link {
+  font-size: 1.3rem;
+  margin: 0 1rem;
 }
