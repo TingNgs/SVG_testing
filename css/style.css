@@ -304,14 +304,4 @@
     fill: #E21737;
   }
 }
-.other {
-  position: absolute;
-  left: 0;
-  bottom: 0.5rem;
-  width: 100%;
-  text-align: right;
-}
-.other__link {
-  font-size: 1.3rem;
-  margin: 0 1rem;
-}
+
