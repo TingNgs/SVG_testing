@@ -98,7 +98,7 @@
   }
   @keyframes k_mid{
     50%{
-      transform: translateX(90px);
+      transform: translateX(100px);
     }
     100% {
       transform: translateX(90px);
@@ -107,7 +107,7 @@
   }
   @keyframes k_top{
     50%{
-      transform: translateX(90px);
+      transform: translateX(100px);
     }
     100% {
       transform: translateX(130px) skewX(-45deg);
@@ -116,7 +116,7 @@
   }
   @keyframes k_bot{
     50%{
-      transform: translateX(90px);
+      transform: translateX(100px);
     }
     100% {
       -webkit-transform: skewX(45deg) translateX(50px);
