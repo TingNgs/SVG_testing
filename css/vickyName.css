@@ -101,7 +101,7 @@
       transform: translateX(100px);
     }
     100% {
-      transform: translateX(90px);
+      transform: translateX(60px);
       fill: #E21737;
     }
   }
@@ -110,7 +110,7 @@
       transform: translateX(100px);
     }
     100% {
-      transform: translateX(130px) skewX(-45deg);
+      transform: translateX(105px) skewX(-45deg);
       fill: #E21737;
     }
   }
@@ -119,7 +119,7 @@
       transform: translateX(100px);
     }
     100% {
-      -webkit-transform: skewX(45deg) translateX(50px);
+      -webkit-transform: skewX(45deg) translateX(25px);
       fill: #E21737;
     }
   }
