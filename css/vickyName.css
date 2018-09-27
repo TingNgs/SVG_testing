@@ -141,8 +141,8 @@
       transform: translateX(90px);
     }
     100% {
-      -webkit-transform: translateX(130px);
-      transform: translateX(130px);
+      -webkit-transform: translateX(117px);
+      transform: translateX(117px);
     }
   }
   @keyframes k_top{
