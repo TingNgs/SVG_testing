@@ -148,7 +148,7 @@
   @keyframes k_top{
     50%{
       -webkit-transform: translateX(124px) skewX(-40deg);
-      transform: translateX(124px) skewX(-40deg);
+      transform: translateX(124px) skewX(-40deg) translateY(-2px);
     }
     100% {
       -webkit-transform: translateX(124px) skewX(-40deg);
